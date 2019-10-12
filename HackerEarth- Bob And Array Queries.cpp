@@ -12,7 +12,7 @@ void construct_segment_tree(int root_index,int b,int e)
 {
     if(b==e)// begin and end range is equal means leaf node comes place this value
     {
-        tree[root_index]=__builtin_popcount(arr[b]);
+        tree[root_index]=(arr[b]);
         //cout<<tree[root_index]<<endl;
         return ;
     }
@@ -50,7 +50,7 @@ void update(int root_index,int b,int e,int i)
     }
     if(i==b&&i==e) // that node we get
     {
-        tree[root_index]=__builtin_popcount(arr[i]);
+        tree[root_index]=(arr[i]);
         return;
     }
     int left=(2*root_index);
@@ -76,9 +76,9 @@ int main() {
    scanf("%d",&c);
    if(c==1||c==2) {
         scanf("%d",&l);
-        if(c==1) arr[l]=2*arr[l]+1;
+        if(c==1) arr[l]=arr[l]+1;
         else {
-                arr[l] =(floor) (arr[l]/2);
+                if(arr[l]) arr[l] =arr[l]-1;
             }
         update(1,1,n,l);
    }
